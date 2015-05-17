@@ -6,13 +6,13 @@
 	<title>	LoLCat Ipsum</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<?php require 'logic.php'; ?>
 			
 	
 </head>
 
 <body>
 	<div class="container">
-
 		
 		<h1 class="text-center">LOLcat Ipsum Generator</h1>
 		<br>
@@ -20,7 +20,7 @@
 			<p>Check out this tool for walls of text you can copy and paste to test your app. The lolspeak comes from the <a href="http://www.lolcatbible.com/index.php?title=Gospel_of_Mark">LOLcat Bible Book of Mark</a> and the latin text comes from <a href="http://la.wikisource.org/wiki/De_finibus_bonorum_et_malorum/Liber_Primus">a chunk of real Latin.</a> See if you can see the difference!</p>
 			<br>
 			<br>
-			<form method='GET' action=http://localhost/lolcat-ipsum>
+			<form method='GET' action="/">
 				<label for='numPar'>How many paragraphs would you like? (max 15)</label>
 				<input type='number' name='numPar' id='numPar' max='15' min='1' required><br>
 				<br>
@@ -33,8 +33,17 @@
 		<br>
 		
 					</span>
-		<img src="css/images/grumpy-latin-cat.png">
+		<!-- <img src="css/images/grumpy-latin-cat.png"> -->
 
+		<?php 
+				if(isset($_GET['getLOL'])) {
+					echo "<span id=\"LOLoutput\" class=\"output\">";
+					for($i = 0, $size = count($generatedText); $i < $size; $i++){
+						echo "<p>".$generatedText[$i]."</p>";	
+					}
+					echo "</span><br><br>";
+				}
+			?>
 
 <!-- JavaScript -->
 	
