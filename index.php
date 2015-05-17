@@ -39,7 +39,7 @@
 				if(isset($_GET['getLOL'])) {
 					echo "<span id=\"LOLoutput\" class=\"output\">";
 					for($i = 0, $size = count($generatedText); $i < $size; $i++){
-						echo "<p>".$generatedText[$i]."</p>";	
+						echo "<p>".$generatedText[$i][0]." ".$generatedText[$i][1]." ".$generatedText[$i][2]."</p>";	
 					}
 					echo "</span><br><br>";
 				}
