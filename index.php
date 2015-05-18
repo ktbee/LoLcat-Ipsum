@@ -36,10 +36,15 @@
 		<!-- <img src="css/images/grumpy-latin-cat.png"> -->
 
 		<?php 
+			//var_dump($generatedText);
 				if(isset($_GET['getLOL'])) {
+					
+					$size = count($generatedText);
+
 					echo "<span id=\"LOLoutput\" class=\"output\">";
-					for($i = 0, $size = count($generatedText); $i < $size; $i++){
-						echo "<p>".$generatedText[$i][0]." ".$generatedText[$i][1]." ".$generatedText[$i][2]."</p>";	
+					
+					for($i = 0;  $i < $size; $i++){
+						echo "<p>".$generatedText[$i]['0']." ".$generatedText[$i]['1']." ".$generatedText[$i]['2']."</p>";	
 					}
 					echo "</span><br><br>";
 				}

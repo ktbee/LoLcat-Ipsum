@@ -18,7 +18,9 @@ function remove_span($element) {
 	                $element->outertext = '';        
 }
 
- // grabs the innertext of <span> elements and adds the to an array
+// grabs the innertext of elements and adds the to an array
+
+//lolspeak
 for ($i=1; $i <= 16; $i++) {
 	$lolHTML = file_get_html('http://www.lolcatbible.com/index.php?title=Mark_'.$i); 	
 	$lolHTML->set_callback('remove_link');
@@ -28,13 +30,35 @@ for ($i=1; $i <= 16; $i++) {
 	}	
 };
 
+//latin
 $lorenHTML = file_get_html('http://la.wikisource.org/wiki/De_finibus_bonorum_et_malorum/Liber_Primus');
 $lorenHTML->set_callback('remove_link');	
 $lorenHTML->set_callback('remove_span');
 foreach ($lorenHTML->find('p') as $p) {
 	$paragraph = $p->innertext;
-	array_push($lolArray, $paragraph);
+	$paragraph = explode(']', $paragraph);
+	array_push($lolArray, $paragraph[1]);
 }
-//print_r($lolArray);
+
+// Set the filename
+$file = 'lolLibrary.txt';
+// Write the contents back to the file
+file_put_contents($file, $lolArray); 
+
+// remove double quotes from text
+$str=file_get_contents('lolLibrary.txt');
+$str=str_replace('"', '',$str);
+$str=str_replace('<dd>', '',$str);
+$str=str_replace('</dd>', '',$str);
+$str=str_replace('<dl>', '',$str);
+$str=str_replace('</dl>', '',$str);
+$str=str_replace('<pre>', '',$str);
+$str=str_replace('</pre>', '',$str);
+file_put_contents('lolLibrary.txt', $str); 
+
+
+
+
+
+
 	
-?>
