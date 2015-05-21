@@ -6,6 +6,7 @@
 	<title>	LoLCat Ipsum</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
 	<?php require 'logic.php'; ?>
 			
 	
@@ -33,25 +34,20 @@
 		<br>
 		
 					</span>
-		<!-- <img src="css/images/grumpy-latin-cat.png"> -->
+		<img src="/grumpy-latin-cat.png">
 
 		<?php 
-			//var_dump($generatedText);
 				if(isset($_GET['getLOL'])) {
 					
-					$size = count($generatedText);
-
 					echo "<span id=\"LOLoutput\" class=\"output\">";
 					
-					for($i = 0;  $i < $size; $i++){
-						echo "<p>".$generatedText[$i]['0']." ".$generatedText[$i]['1']." ".$generatedText[$i]['2']."</p>";	
+					for($i = 0;  $i < $numPar; $i++){
+						echo "<p>".$generatedText[$i]['0'].". ".$generatedText[$i]['1'].". ".$generatedText[$i]['2'].".</p>";	
 					}
 					echo "</span><br><br>";
 				}
-			?>
+		?>
 
-<!-- JavaScript -->
-	
 
 	</div> <!-- end container -->
 </body>

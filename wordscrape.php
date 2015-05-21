@@ -1,7 +1,7 @@
 <?php 
 
-error_reporting(E_ALL);      
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);      
+//ini_set('display_errors', 1);
 
 require "simple_html_dom.php";
 
@@ -45,7 +45,7 @@ $file = 'lolLibrary.txt';
 // Write the contents back to the file
 file_put_contents($file, $lolArray); 
 
-// remove double quotes from text
+// remove undesireables from text
 $str=file_get_contents('lolLibrary.txt');
 $str=str_replace('"', '',$str);
 $str=str_replace('<dd>', '',$str);

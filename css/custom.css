@@ -1,0 +1,59 @@
+.output {
+	border: 2px solid black;
+	padding: 1em;
+	max-width: 50%;
+	font-size: 1.25em;
+}
+
+#LOLoutput{
+	float: left;
+	margin-left: 2em;
+	margin-bottom: 2em;
+}
+
+.helper-text {
+	font-weight: bold;
+}
+
+.form {
+	max-width: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.btn {
+	background-color: black;
+	color: white !important;		
+}
+
+.btn:hover {
+	background-color: gainsboro;
+	color: black;
+}
+
+.btn:visit {
+	background-color: gainsboro;
+	color: black;
+}
+
+.btn:click {
+	background-color: gainsboro;
+	color: black;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+img {
+	float: right;
+	z-index: -1;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}
+
+.narrow-paragraph {
+	max-width: 80%;
+	margin-right: 2em;
+}
