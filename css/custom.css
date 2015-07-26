@@ -1,24 +1,42 @@
+@media (min-width: 768px) and (max-width: 991px) {
+
+	.output {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	.instructions {
+		max-width: 100%;
+	}
+
+}
+
+@media (min-width: 991px){
+	.output {
+		max-width: 50%;
+		margin-bottom: 2em;
+	}
+
+	.instructions {
+		max-width: 50%;
+	}
+}
+
 .output {
 	border: 2px solid black;
 	padding: 1em;
-	max-width: 50%;
 	font-size: 1.25em;
-}
-
-#LOLoutput{
 	float: left;
-	margin-left: 2em;
-	margin-bottom: 2em;
 }
 
 .helper-text {
 	font-weight: bold;
 }
 
-.form {
-	max-width: 50%;
+form {
 	display: block;
 	margin: 0 auto;
+	font-size:1.25em;
 }
 
 .btn {
@@ -53,7 +71,8 @@ img {
 	right: 0px;
 }
 
-.narrow-paragraph {
-	max-width: 80%;
-	margin-right: 2em;
+.instructions {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	font-size: 1.25em;
 }
