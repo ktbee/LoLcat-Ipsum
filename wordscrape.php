@@ -5,7 +5,8 @@
 
 require "simple_html_dom.php";
 
-$lolArray = [];
+$lolspeak = [];
+$latin = [];
 
  // gets rid of links
 function remove_link($element) {
@@ -18,43 +19,45 @@ function remove_span($element) {
 	                $element->outertext = '';        
 }
 
+function remove_tags($str){
+	$str=str_replace('"', '',$str);
+	$str=str_replace('<dd>', '',$str);
+	$str=str_replace('</dd>', '',$str);
+	$str=str_replace('<dl>', '',$str);
+	$str=str_replace('</dl>', '',$str);
+	$str=str_replace('<pre>', '',$str);
+	$str=str_replace('</pre>', '',$str);
+}
+
 // grabs the innertext of elements and adds the to an array
 
 //lolspeak
 for ($i=1; $i <= 16; $i++) {
 	$lolHTML = file_get_html('http://www.lolcatbible.com/index.php?title=Mark_'.$i); 	
 	$lolHTML->set_callback('remove_link');
+	remove_tags($lolHTML);
 	foreach ($lolHTML->find('span[id]') as $s) {
 		$sentence = $s->innertext;
-		array_push($lolArray, $sentence);
+		array_push($lolspeak, $sentence);
 	}	
 };
+file_put_contents("lolspeak.txt", $lolspeak);
 
 //latin
 $lorenHTML = file_get_html('http://la.wikisource.org/wiki/De_finibus_bonorum_et_malorum/Liber_Primus');
 $lorenHTML->set_callback('remove_link');	
 $lorenHTML->set_callback('remove_span');
+remove_tags($lorenHTML);
 foreach ($lorenHTML->find('p') as $p) {
 	$paragraph = $p->innertext;
 	$paragraph = explode(']', $paragraph);
-	array_push($lolArray, $paragraph[1]);
+	array_push($latin, $paragraph[1]);
 }
 
-// Set the filename
-$file = 'lolLibrary.txt';
-// Write the contents back to the file
-file_put_contents($file, $lolArray); 
+file_put_contents("latin.txt", $latin);
+ 
 
-// remove undesireables from text
-$str=file_get_contents('lolLibrary.txt');
-$str=str_replace('"', '',$str);
-$str=str_replace('<dd>', '',$str);
-$str=str_replace('</dd>', '',$str);
-$str=str_replace('<dl>', '',$str);
-$str=str_replace('</dl>', '',$str);
-$str=str_replace('<pre>', '',$str);
-$str=str_replace('</pre>', '',$str);
-file_put_contents('lolLibrary.txt', $str); 
+
 
 
 
