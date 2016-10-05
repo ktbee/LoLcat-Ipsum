@@ -1,8 +1,9 @@
-.output {
+#LOLoutput {
 	border: 2px solid black;
 	padding: 1em;
 	font-size: 1.25em;
 	float: left;
+	margin-bottom: 2em;
 }
 
 .helper-text {
@@ -47,7 +48,7 @@ h1 {
 	font-size: 2em;
 }
 
-img {
+#cat {
 	float: right;
 	z-index: -1;
 	position: fixed;
@@ -70,6 +71,13 @@ img {
 
 	.instructions {
 		max-width: 100%;
+	}
+
+	#cat {
+		position: relative;
+		float: none;
+		display: block;
+		margin: 0 auto;
 	}
 
 }

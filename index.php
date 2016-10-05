@@ -29,20 +29,17 @@
 			<button type='submit' name='getLOL' class='btn btn-lg'>Click here to Laugh Out Latin</button>
 		</form>
 
-		<img src="grumpy-latin-cat.png" class="hidden-sm hidden-xs">
-
-		<?php 
+		<?php
 				if(isset($_GET['getLOL'])) {
-					
-					echo "<span id=\"LOLoutput\" class=\"output\">";
-					
+					echo "<div id=\"LOLoutput\" class=\"output\">";
 					for($i = 0;  $i < $numPar; $i++){
-						echo "<p>".$generatedText[$i]['0'].". ".$generatedText[$i]['1'].". ".$generatedText[$i]['2'].".</p>";	
+						echo "<p>".$generatedText[$i]['0'].". ".$generatedText[$i]['1'].". ".$generatedText[$i]['2'].".</p>";
 					}
-					echo "</span><br><br>";
+					echo "</div>";
 				}
 		?>
 
+		<img id="cat" src="grumpy-latin-cat.png">
 
 	</div> <!-- end container -->
 </body>
