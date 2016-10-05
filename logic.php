@@ -1,25 +1,24 @@
 <?php
 
-error_reporting(E_ALL);      
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
 if(isset($_GET['getLOL'])) {
-	//check if user has selected to generate justlolspeak or latin, else use text file that contains both
+	// Check if user has selected to generate justlolspeak or latin, else use text file that contains both.
 	if(isset($_GET['purrist'])){
 		$purrist = $_GET['purrist'];
-		
-		// grab text from lolspeak.txt file for generated text
+
+		// Grab text from lolspeak.txt file for generated text.
 		if($purrist == 'lolspeak'){
 			$str=file_get_contents('lolspeak.txt'); //grab scraped text
 			$textFile = explode ( '. ' , $str); // break up text to add to array
-	    	$numPar = $_GET['numPar'];
+	    $numPar = $_GET['numPar'];
 			$generatedText = [];
 			$newParagraph = [];
 			for($i=0; $i<= $numPar - 1; $i++){
-				// generate three sentences for each paragraph
+				// Generate three sentences for each paragraph.
 				for ($s = 0; $s<= 2; $s++){
-					
 					$sentencePosition = array_rand($textFile);   // Randomly picking an index from the sentence list
 					$newSentence = $textFile[$sentencePosition];     // Get the value of the key at the random index's position in the array
 					array_push($newParagraph, $newSentence); // add random sentence to paragraph array
@@ -37,7 +36,6 @@ if(isset($_GET['getLOL'])) {
 			for($i=0; $i<= $numPar - 1; $i++){
 				// generate three sentences for each paragraph
 				for ($s = 0; $s<= 2; $s++){
-					
 					$sentencePosition = array_rand($textFile);   // Randomly picking an index from the sentence list
 					$newSentence = $textFile[$sentencePosition];     // Get the value of the key at the random index's position in the array
 					array_push($newParagraph, $newSentence); // add random sentence to paragraph array
@@ -56,7 +54,6 @@ if(isset($_GET['getLOL'])) {
 		for($i=0; $i<= $numPar - 1; $i++){
 			// generate three sentences for each paragraph
 			for ($s = 0; $s<= 2; $s++){
-				
 				$sentencePosition = array_rand($textFile);   // Randomly picking an index from the sentence list
 				$newSentence = $textFile[$sentencePosition];     // Get the value of the key at the random index's position in the array
 				array_push($newParagraph, $newSentence); // add random sentence to paragraph array
