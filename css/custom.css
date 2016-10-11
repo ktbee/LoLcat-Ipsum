@@ -50,7 +50,6 @@ h1 {
 
 #cat {
 	float: right;
-	z-index: -1;
 	position: fixed;
 	bottom: 0px;
 	right: 0px;
@@ -60,6 +59,13 @@ h1 {
 	margin-top: 2em;
 	margin-bottom: 1em;
 	font-size: 1.25em;
+}
+
+@media (max-width: 767px) {
+	#cat {
+		position: static;
+	}
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

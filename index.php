@@ -39,7 +39,7 @@
 				}
 		?>
 
-		<img id="cat" src="grumpy-latin-cat.png">
+		<img id="cat" class="img-responsive" src="grumpy-latin-cat.png">
 
 	</div> <!-- end container -->
 </body>
